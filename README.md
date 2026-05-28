@@ -30,25 +30,21 @@
 Explore the premium, glassmorphic Material 3 mobile application interface designed to elevate your interview readiness:
 
 <p align="center">
-  <img src="assets/screenshots/1.png" width="31%" alt="Onboarding & Goal Selection" /> &nbsp;
-  <img src="assets/screenshots/2.png" width="31%" alt="AI Mock Interview Simulator" /> &nbsp;
-  <img src="assets/screenshots/3.png" width="31%" alt="Real-time Voice Waveforms" />
+  <img src="assets/screenshots/1.png" width="23%" alt="Onboarding & Goal Selection" /> &nbsp;
+  <img src="assets/screenshots/2.png" width="23%" alt="AI Mock Interview Simulator" /> &nbsp;
+  <img src="assets/screenshots/3.png" width="23%" alt="Real-time Voice Waveforms" /> &nbsp;
+  <img src="assets/screenshots/4.png" width="23%" alt="Granular AI Diagnostic Feedback" />
 </p>
 <p align="center">
-  <img src="assets/screenshots/4.png" width="31%" alt="Granular AI Diagnostic Feedback" /> &nbsp;
-  <img src="assets/screenshots/5.png" width="31%" alt="Competency Radar Analysis" /> &nbsp;
-  <img src="assets/screenshots/6.png" width="31%" alt="Smart Practice Hub Ecosystem" />
-</p>
-
-### 🏆 Premium Features Showcase
-<p align="center">
-  <img src="assets/screenshots/ACE INTERVIEWS WITH AI.png" width="48%" alt="Ace Interviews with AI Core" /> &nbsp;
-  <img src="assets/screenshots/ACE INTERVIEWS WITH AI (1).png" width="48%" alt="Practice System" />
+  <img src="assets/screenshots/5.png" width="23%" alt="Competency Radar Analysis" /> &nbsp;
+  <img src="assets/screenshots/6.png" width="23%" alt="Smart Practice Hub Ecosystem" /> &nbsp;
+  <img src="assets/screenshots/7.png" width="23%" alt="ATS Resume Matcher" /> &nbsp;
+  <img src="assets/screenshots/8.png" width="23%" alt="Daily Habits & Drills" />
 </p>
 <p align="center">
-  <img src="assets/screenshots/ACE INTERVIEWS WITH AI (2).png" width="31%" alt="Feedback Analysis" /> &nbsp;
-  <img src="assets/screenshots/ACE INTERVIEWS WITH AI (3).png" width="31%" alt="ATS Check" /> &nbsp;
-  <img src="assets/screenshots/ACE INTERVIEWS WITH AI (4).png" width="31%" alt="Ecosystem Paths" />
+  <img src="assets/screenshots/9.png" width="31%" alt="LinkedIn & Social Auth" /> &nbsp;
+  <img src="assets/screenshots/10.png" width="31%" alt="Premium Feature Access" /> &nbsp;
+  <img src="assets/screenshots/11.png" width="31%" alt="Granular Performance Analytics" />
 </p>
 
 ---
