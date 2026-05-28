@@ -16,13 +16,10 @@
 
 ## 🎯 Key Value Propositions & Metrics
 *   ⚡ **Adaptive AI Questioning**: Real-time interviewer that adapts follow-up questions to your resume, target role, and answer depth.
-*   🎙️ **Native Speech-to-Text**: Low-latency reactive voice simulation featuring beautiful audio waveform visualizations.
+*   🎙️ **Speech-to-Text**: Low-latency reactive voice simulation featuring beautiful audio waveform visualizations.
 *   📄 **ATS Resume Optimizer**: Instant scoring, keyword suggestions, and improvement breakdown to beat automated HR screening.
 *   📊 **Interview Readiness Score**: Comprehensive metric tracking across Technical, Behavioral, and Leadership competencies.
-*   🔥 **Proven Success**: Driving massive user conversions:
-    *   **50,000+** Active Prep Sessions
-    *   **1,000,000+** Custom AI Question Simulations
-    *   **95%+** Candidate Offer Conversion Rate
+*   🔥 **Proven Success**: Driving massive user conversions
 
 ---
 
