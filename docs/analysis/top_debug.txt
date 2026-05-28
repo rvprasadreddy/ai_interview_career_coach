@@ -1,0 +1,10 @@
+
+
+import '../models/interview_config.dart';
+import '../providers/interview_provider.dart';
+import '../../auth/providers/auth_provider.dart';
+import '../../../core/constants/app_constants.dart';
+
+class InterviewSetupScreen extends ConsumerStatefulWidget {
+  const InterviewSetupScreen({super.key});
+

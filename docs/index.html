@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Tags -->
+  <title>InterviPrep - AI Interviewer & Professional Career Coach</title>
+  <meta name="description" content="Master your job interviews with InterviPrep, the leading AI-powered mock interview simulator. Get real-time voice practice, instant feedback, and ATS resume scoring to land your dream job.">
+  <meta name="keywords" content="AI interviewer, AI interview coach, mock interview simulator, ATS resume scoring, voice practice app, job interview preparation, career coaching, behavioral interview practice, technical interview simulator, Flutter interview prep">
+  <meta name="author" content="InterviPrep Team">
+  <link rel="canonical" href="https://www.interviprep.ai/">
+  
+  <!-- OpenGraph Social Tags -->
+  <meta property="og:title" content="InterviPrep - AI-Powered Mock Interview Coach">
+  <meta property="og:description" content="Crush your next job interview. Simulates real HR, technical, and behavioral sessions with voice interaction and provides granular skill diagnostics.">
+  <meta property="og:url" content="https://www.interviprep.ai/">
+  <meta property="og:site_name" content="InterviPrep">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://www.interviprep.ai/og-image.png">
+  <meta property="og:image:alt" content="InterviPrep App Dashboard Mockup">
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="InterviPrep - AI-Powered Interview Coaching Platform">
+  <meta name="twitter:description" content="Experience realistic AI-driven mock interviews, real-time feedback, and ATS keyword optimization.">
+  <meta name="twitter:image" content="https://www.interviprep.ai/og-image.png">
+
+  <!-- Google Fonts & Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Premium Custom Styling (Pure CSS, no heavy frameworks) -->
+  <style>
+    /* CSS Reset & Variables */
+    :root {
+      --bg-dark: #0a0c16;
+      --bg-card: rgba(18, 22, 41, 0.6);
+      --bg-glass: rgba(255, 255, 255, 0.03);
+      --border-glass: rgba(255, 255, 255, 0.07);
+      --border-glass-hover: rgba(255, 255, 255, 0.15);
+      --primary: #4f46e5;
+      --primary-glow: rgba(79, 70, 229, 0.4);
+      --secondary: #0ea5e9;
+      --secondary-glow: rgba(14, 165, 233, 0.4);
+      --accent: #d946ef;
+      --accent-glow: rgba(217, 70, 239, 0.3);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --font-primary: 'Outfit', sans-serif;
+      --font-secondary: 'Plus Jakarta Sans', sans-serif;
+      --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Ambient Background Glows */
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(150px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      top: -10%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+      opacity: 0.6;
+    }
+
+    .orb-2 {
+      top: 40%;
+      left: -15%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, var(--secondary-glow) 0%, transparent 70%);
+      opacity: 0.5;
+    }
+
+    .orb-3 {
+      bottom: 5%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      opacity: 0.4;
+    }
+
+    /* Typography & Utilities */
+    h1, h2, h3, h4 {
+      font-family: var(--font-secondary);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      font-weight: 700;
+      font-family: var(--font-secondary);
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      box-shadow: 0 10px 30px -10px var(--primary-glow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px -5px var(--primary-glow);
+    }
+
+    .btn-glass {
+      color: var(--text-main);
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-glass:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-glass-hover);
+      transform: translateY(-2px);
+    }
+
+    .glass-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(20px);
+      border-radius: 1.75rem;
+      transition: var(--transition-smooth);
+    }
+
+    .glass-card:hover {
+      border-color: var(--border-glass-hover);
+      box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Navigation */
+    header {
+      position: fixed;
+      top: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1200px;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 2rem;
+      background: rgba(10, 12, 22, 0.4);
+      border: 1px solid var(--border-glass);
+      backdrop-filter: blur(24px);
+      border-radius: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: var(--font-secondary);
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--secondary) 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .badge-icon {
+      height: 36px;
+      transition: var(--transition-smooth);
+    }
+
+    .badge-icon:hover {
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      padding: 12rem 2rem 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-cols: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .hero-content h1 {
+      font-size: 3.75rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero-features {
+      display: grid;
+      grid-template-cols: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    .hero-feature-item i {
+      color: var(--secondary);
+      flex-shrink: 0;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-mockup {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .mockup-inner {
+      width: 100%;
+      max-width: 440px;
+      aspect-ratio: 16/9;
+      background: radial-gradient(circle at center, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+      border-radius: 2rem;
+      padding: 1px;
+      position: relative;
+    }
+
+    .mockup-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      border: 1px solid var(--border-glass);
+      object-fit: cover;
+      box-shadow: 0 50px 100px -30px rgba(0,0,0,0.8);
+      background: rgba(18, 22, 41, 0.8);
+    }
+
+    /* Metrics Bar */
+    .metrics {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-cols: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2.5rem;
+    }
+
+    .metric-card {
+      text-align: center;
+    }
+
+    .metric-card h3 {
+      font-size: 3.25rem;
+      background: linear-gradient(135deg, #ffffff 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-card p {
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+    }
+
+    .metrics-divider {
+      width: 1px;
+      background: var(--border-glass);
+      height: 60%;
+      align-self: center;
+    }
+
+    /* How It Works (Methodology) */
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    .methodology {
+      padding: 6rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .methodology-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-cols: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+
+    .methodology-card {
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .methodology-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem auto;
+      font-size: 1.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .step-1 { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+    .step-2 { background: rgba(59, 130, 246, 0.1); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.2); }
+    .step-3 { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; border: 1px solid rgba(139, 92, 246, 0.2); }
+    .step-4 { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .step-5 { background: rgba(236, 72, 153, 0.1); color: #ec4899; border: 1px solid rgba(236, 72, 153, 0.2); }
+
+    .methodology-card:hover .methodology-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .methodology-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .methodology-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .step-badge {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-muted);
+    }
+
+    /* Ecosystem/Features Section */
+    .features {
+      padding: 6rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .features-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-cols: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .feature-icon-wrapper {
+      width: 72px;
+      height: 72px;
+      border-radius: 1.5rem;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem auto;
+      color: var(--secondary);
+      transition: var(--transition-smooth);
+    }
+
+    .feature-card:hover .feature-icon-wrapper {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 10px 25px -5px var(--primary-glow);
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ATS Scoring Interactive Simulator */
+    .ats-section {
+      padding: 6rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .ats-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .ats-card {
+      padding: 3rem;
+      border-radius: 2rem;
+    }
+
+    .ats-grid {
+      display: grid;
+      grid-template-cols: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .ats-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .form-group input, .form-group textarea {
+      padding: 0.85rem 1.25rem;
+      border-radius: 0.75rem;
+      background: rgba(10, 12, 22, 0.6);
+      border: 1px solid var(--border-glass);
+      color: #ffffff;
+      font-family: var(--font-primary);
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 15px -3px var(--secondary-glow);
+    }
+
+    .ats-results {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 250px;
+    }
+
+    .ats-score-ring {
+      position: relative;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(18, 22, 41, 0.8) 0%, rgba(10, 12, 22, 0.9) 100%);
+      border: 6px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .ats-score-ring svg {
+      position: absolute;
+      top: -6px;
+      left: -6px;
+      width: 160px;
+      height: 160px;
+      transform: rotate(-90deg);
+    }
+
+    .score-circle {
+      fill: none;
+      stroke: var(--secondary);
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-dasharray: 465;
+      stroke-dashoffset: 465;
+      transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .score-value {
+      font-size: 3rem;
+      font-weight: 800;
+      font-family: var(--font-secondary);
+      color: #ffffff;
+    }
+
+    .ats-insights {
+      display: none;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .ats-insights p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .insight-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      align-self: center;
+    }
+
+    .pill-good { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); }
+    .pill-warn { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.2); }
+
+    /* FAQ Section */
+    .faq {
+      padding: 6rem 0;
+      position: relative;
+      z-index: 10;
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .faq-item {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      transition: max-height 0.3s ease-out;
+      margin-top: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      margin-top: 1rem;
+    }
+
+    .faq-item i {
+      transition: var(--transition-smooth);
+    }
+
+    .faq-item.active i {
+      transform: rotate(180deg);
+      color: var(--secondary);
+    }
+
+    /* Footer & Conversion Banner */
+    .conversion-banner {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .banner-card {
+      padding: 4rem 3rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.15) 0%, rgba(18, 22, 41, 0.8) 100%);
+    }
+
+    .banner-card h2 {
+      font-size: 2.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .banner-card p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-glass);
+      padding: 4rem 2rem;
+      background: #06070e;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-cols: 1.5fr 1fr 1.5fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .footer-links h4, .footer-subscribe h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+      padding-left: 4px;
+    }
+
+    .subscribe-form {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .subscribe-form input {
+      flex-grow: 1;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-glass);
+      color: #ffffff;
+      font-size: 0.95rem;
+    }
+
+    .subscribe-form input:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-glass);
+      padding-top: 2rem;
+    }
+
+    .footer-badges {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1024px) {
+      .hero {
+        grid-template-cols: 1fr;
+        text-align: center;
+        padding-top: 10rem;
+        gap: 3rem;
+      }
+      .hero-features {
+        justify-content: center;
+      }
+      .hero-feature-item {
+        justify-content: center;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .methodology-grid {
+        grid-template-cols: repeat(3, 1fr);
+      }
+      .features-grid {
+        grid-template-cols: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-cols: 1fr 1fr;
+      }
+      .footer-subscribe {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .metrics-grid {
+        grid-template-cols: 1fr;
+        gap: 1.5rem;
+      }
+      .metrics-divider {
+        display: none;
+      }
+      .methodology-grid {
+        grid-template-cols: 1fr;
+      }
+      .features-grid {
+        grid-template-cols: 1fr;
+      }
+      .ats-grid {
+        grid-template-cols: 1fr;
+        gap: 2rem;
+      }
+      .hero-content h1 {
+        font-size: 2.75rem;
+      }
+      .footer-grid {
+        grid-template-cols: 1fr;
+        gap: 2.5rem;
+      }
+      .footer-subscribe {
+        grid-column: span 1;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <!-- Structured Data JSON-LD for Google Rich Snippets -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "InterviPrep",
+      "operatingSystem": "iOS, Android",
+      "applicationCategory": "BusinessApplication, EducationalApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1280"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "InterviPrep",
+      "url": "https://www.interviprep.ai/",
+      "logo": "https://www.interviprep.ai/app_icon_circle.png",
+      "sameAs": [
+        "https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114",
+        "https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach"
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Header Nav -->
+  <header>
+    <nav class="nav-container">
+      <a href="#" class="logo">
+        <img class="logo-img" src="../assets/images/app_logo_cut_512.png" alt="InterviPrep Logo Symbol" onerror="this.src='https://www.interviprep.ai/app_icon_circle.png'">
+        Intervi<span>Prep</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#how-it-works">Methodology</a></li>
+        <li><a href="#features">Ecosystem</a></li>
+        <li><a href="#ats-scorer">ATS Tool</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114" target="_blank" rel="noopener noreferrer">
+          <img class="badge-icon" src="https://www.interviprep.ai/App_Store_Badge.svg" alt="Download on the App Store" onerror="this.style.display='none'">
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach" target="_blank" rel="noopener noreferrer">
+          <img class="badge-icon" src="https://www.interviprep.ai/Google_Play_Store_Badge.svg" alt="Get it on Google Play" onerror="this.style.display='none'">
+        </a>
+        <a href="https://www.interviprep.ai/" class="btn btn-glass" style="padding: 0.5rem 1.2rem; font-size: 0.85rem; border-radius: 0.75rem;">Web App</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="gradient-text">The Future of AI Interview Prep is Here.</h1>
+        <p>Experience realistic, adaptive, voice-based mock interviews. InterviPrep leverages advanced conversational AI to deliver responsive follow-up questions, instant feedback analysis, and personalized skill-gap roadmaps built around elite hiring standards.</p>
+        
+        <div class="hero-features">
+          <div class="hero-feature-item"><i data-lucide="check-circle-2"></i> Real-time Adaptive Voice Mocking</div>
+          <div class="hero-feature-item"><i data-lucide="check-circle-2"></i> Granular Skill Gap Analytics</div>
+          <div class="hero-feature-item"><i data-lucide="check-circle-2"></i> Dynamic ATS Resume Optimization</div>
+          <div class="hero-feature-item"><i data-lucide="check-circle-2"></i> Multi-Dimensional Readiness Index</div>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="https://www.interviprep.ai/" class="btn btn-primary">Start Free Session <i data-lucide="arrow-right"></i></a>
+          <a href="#how-it-works" class="btn btn-glass">Learn Methodology</a>
+        </div>
+      </div>
+
+      <div class="hero-mockup">
+        <div class="mockup-inner">
+          <!-- Glassmorphic Mockup Block -->
+          <img class="mockup-img" src="../flutter_01.png" alt="InterviPrep Application Interface Mockup" onerror="this.src='https://www.interviprep.ai/og-image.png'">
+        </div>
+      </div>
+    </section>
+
+    <!-- Metrics Bar -->
+    <section class="metrics">
+      <div class="glass-card metrics-grid">
+        <div class="metric-card">
+          <h3>50K+</h3>
+          <p>Active Users Prepping</p>
+        </div>
+        <div class="metrics-divider"></div>
+        <div class="metric-card">
+          <h3>1M+</h3>
+          <p>Simulated AI Questions</p>
+        </div>
+        <div class="metrics-divider"></div>
+        <div class="metric-card">
+          <h3>95%</h3>
+          <p>Successful Job Offer Rate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology Journey -->
+    <section id="how-it-works" class="methodology">
+      <div class="section-title">
+        <h2>Your Path To Mastery is Simple</h2>
+        <p>A comprehensive, structured roadmap engineered to transform interview anxiety into authentic performance and high-paying offers.</p>
+      </div>
+
+      <div class="methodology-grid">
+        <div class="glass-card methodology-card">
+          <div class="step-badge">1</div>
+          <div class="methodology-icon step-1"><i data-lucide="target"></i></div>
+          <h3>Define Career Goal</h3>
+          <p>Specify target role and seniority. The AI anchors preparation around high-value core competencies.</p>
+        </div>
+
+        <div class="glass-card methodology-card">
+          <div class="step-badge">2</div>
+          <div class="methodology-icon step-2"><i data-lucide="mic"></i></div>
+          <h3>Master Mock Session</h3>
+          <p>Conduct voice simulations with reactive follow-ups that mimic high-pressure hiring boards.</p>
+        </div>
+
+        <div class="glass-card methodology-card">
+          <div class="step-badge">3</div>
+          <div class="methodology-icon step-3"><i data-lucide="sparkles"></i></div>
+          <h3>Granular AI Feedback</h3>
+          <p>Receive comprehensive, dimensional diagnostics assessing body language, content, and tone.</p>
+        </div>
+
+        <div class="glass-card methodology-card">
+          <div class="step-badge">4</div>
+          <div class="methodology-icon step-4"><i data-lucide="repeat"></i></div>
+          <h3>Drill Weak Areas</h3>
+          <p>Focus practice sessions around recommended tutorials to lock down your specific weak points.</p>
+        </div>
+
+        <div class="glass-card methodology-card">
+          <div class="step-badge">5</div>
+          <div class="methodology-icon step-5"><i data-lucide="award"></i></div>
+          <h3>Crush Real Interview</h3>
+          <p>Walk in completely primed. Turn deliberate practice into a successful high-tier job offer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ecosystem Features Section -->
+    <section id="features" class="features">
+      <div class="section-title">
+        <h2>Premium Prep Ecosystem</h2>
+        <p>Every intelligence tool and performance widget you need, beautifully orchestrated into a seamless interface.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="glass-card feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="users"></i></div>
+          <h3>AI Mock Sessions</h3>
+          <p>Simulate tailored HR, system design, or coding walkthroughs with diverse interviewer personality styles.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="bar-chart-3"></i></div>
+          <h3>Feedback Engine</h3>
+          <p>Examine multi-dimensional charts comparing your readiness indicators against target hiring benchmarks.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="lightbulb"></i></div>
+          <h3>Smart Tutorials</h3>
+          <p>Access recommended masterclasses, FAQ flashcards, and articles customized directly to your score gaps.</p>
+        </div>
+
+        <div class="glass-card feature-card">
+          <div class="feature-icon-wrapper"><i data-lucide="calendar"></i></div>
+          <h3>Daily Drills</h3>
+          <p>Maintain consistent high performance with bite-sized questions and automated notifications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive ATS Optimizer Simulator Section -->
+    <section id="ats-scorer" class="ats-section">
+      <div class="section-title">
+        <h2>Instant ATS Scoring Tool</h2>
+        <p>Test how well your experience matches your target career goals before applying. Simulate automated resume screeners instantly.</p>
+      </div>
+
+      <div class="ats-container">
+        <div class="glass-card ats-card">
+          <div class="ats-grid">
+            <div class="ats-form">
+              <div class="form-group">
+                <label for="job-title">Target Job Title</label>
+                <input type="text" id="job-title" placeholder="e.g., Senior Flutter Developer">
+              </div>
+              <div class="form-group">
+                <label for="job-desc">Key Job Description Requirements</label>
+                <textarea id="job-desc" rows="4" placeholder="Paste core requirements, key tech stack keywords, or experience requirements here..."></textarea>
+              </div>
+              <div class="form-group">
+                <label for="resume-bullets">Your Resume Experience Summary</label>
+                <textarea id="resume-bullets" rows="4" placeholder="Paste your professional experience bullets, skills overview, or achievements here..."></textarea>
+              </div>
+              <button type="button" id="ats-calc-btn" class="btn btn-primary" onclick="simulateATS()">Analyze Resume Score</button>
+            </div>
+
+            <div class="ats-results">
+              <div id="results-idle">
+                <i data-lucide="file-text" style="width: 48px; height: 48px; color: var(--text-muted); margin-bottom: 1rem;"></i>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">Enter details and click analyze to see your automated compatibility score.</p>
+              </div>
+              
+              <div id="results-loading" style="display: none;">
+                <div class="ats-score-ring">
+                  <div class="score-value">...</div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem;">AI screening algorithm running analysis...</p>
+              </div>
+
+              <div id="results-show" style="display: none; width: 100%;">
+                <div class="ats-score-ring">
+                  <svg>
+                    <circle cx="80" cy="80" r="74" class="score-circle" id="score-circle-element"></circle>
+                  </svg>
+                  <div class="score-value" id="score-value-element">0%</div>
+                </div>
+                
+                <div class="ats-insights" id="insights-container" style="display: flex;">
+                  <span class="insight-pill" id="score-pill-element">Review</span>
+                  <p id="score-feedback-text">Optimization advised.</p>
+                  <a href="https://www.interviprep.ai/" class="btn btn-glass" style="margin-top: 1rem; width: 100%; font-size: 0.85rem;">Get Perfect 90%+ in the App</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section -->
+    <section id="faq" class="faq">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about the AI Interviewer and our preparation platform.</p>
+      </div>
+
+      <div class="faq-container">
+        <div class="glass-card faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span>How does the adaptive voice practice work?</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            InterviPrep uses high-fidelity Speech-to-Text translation combined with advanced context memory. When you speak your answers, our AI instantly transcripts the text, evaluates your alignment with target competencies, and dynamically constructs highly realistic follow-up questions just like a professional human recruiter.
+          </div>
+        </div>
+
+        <div class="glass-card faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span>Can I customize the interviewer's personality?</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Yes! You can configure the simulator behavior completely. Choose between a supportive/encouraging style, a standard professional HR agent, or an aggressive "stress-test" challenger personality designed to prepare you for highly technical or senior management roles.
+          </div>
+        </div>
+
+        <div class="glass-card faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span>How does the ATS score calculator help me?</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Our ATS (Applicant Tracking System) optimizer matches your specific resume bullets against the exact requirements of your target job description. It identifies keyword deficiencies, analyzes semantic matching, and suggests precise revisions to ensure you pass automated resume filters and secure direct interviews.
+          </div>
+        </div>
+
+        <div class="glass-card faq-item" onclick="toggleFAQ(this)">
+          <div class="faq-question">
+            <span>Is there a free trial session available?</span>
+            <i data-lucide="chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            Absolutely! You can start a completely free session directly from the web landing page. Downloading the official mobile app unlocks deeper analytical breakdowns, historical tracking, daily drills, and unlimited document reviews.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Download Banner -->
+    <section class="conversion-banner">
+      <div class="glass-card banner-card">
+        <h2 class="gradient-text">Ready to Crush Your Next Interview?</h2>
+        <p>Join over 50,000 active job seekers building authentic confidence and scoring career-defining offers at top tier organizations.</p>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="https://www.interviprep.ai/" class="btn btn-primary btn-lg" style="padding: 1.25rem 2.5rem; font-size: 1.1rem;">Start Free Mock Session</a>
+          <div style="display: flex; gap: 1rem;">
+            <a href="https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114" target="_blank" rel="noopener noreferrer">
+              <img class="badge-icon" src="https://www.interviprep.ai/App_Store_Badge.svg" alt="Download on the App Store" style="height: 48px;" onerror="this.style.display='none'">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach" target="_blank" rel="noopener noreferrer">
+              <img class="badge-icon" src="https://www.interviprep.ai/Google_Play_Store_Badge.svg" alt="Get it on Google Play" style="height: 48px;" onerror="this.style.display='none'">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <img class="logo-img" src="../assets/images/app_logo_cut_512.png" alt="InterviPrep Logo Symbol" onerror="this.src='https://www.interviprep.ai/app_icon_circle.png'">
+          Intervi<span>Prep</span>
+        </a>
+        <p>Premium AI-powered interview coaching and ATS resume optimization. Engineered with Flutter and Supabase for state-of-the-art prep performance.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Ecosystem</h4>
+        <ul>
+          <li><a href="#how-it-works">Methodology</a></li>
+          <li><a href="#features">Key Features</a></li>
+          <li><a href="#ats-scorer">ATS Tool</a></li>
+          <li><a href="https://www.interviprep.ai/">Official Web App</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-subscribe">
+        <h4>Subscribe to Newsletter</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Stay updated with elite interview strategies, FAQs, and application releases.</p>
+        <form class="subscribe-form" onsubmit="event.preventDefault(); alert('Subscribed successfully!');">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="btn btn-primary" style="padding: 0 1.5rem;">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 InterviPrep. All rights reserved. Professional Career Coach Platform.</p>
+      <div class="footer-badges">
+        <a href="mailto:support@interviprep.ai" style="color: var(--text-muted); text-decoration: none; font-weight: 600;"><i data-lucide="mail" style="display:inline-block; vertical-align:middle; width:16px; height:16px; margin-right:4px;"></i> support@interviprep.ai</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icon Renderer & Custom Scripts -->
+  <script>
+    lucide.createIcons();
+
+    // FAQ Toggle Handler
+    function toggleFAQ(element) {
+      const allFaqs = document.querySelectorAll('.faq-item');
+      allFaqs.forEach(faq => {
+        if (faq !== element) {
+          faq.classList.remove('active');
+          faq.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+      
+      element.classList.toggle('active');
+      const answer = element.querySelector('.faq-answer');
+      if (element.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      } else {
+        answer.style.maxHeight = null;
+      }
+    }
+
+    // Dynamic ATS Resume Scoring Simulation Widget
+    function simulateATS() {
+      const title = document.getElementById('job-title').value.trim();
+      const desc = document.getElementById('job-desc').value.trim();
+      const bullets = document.getElementById('resume-bullets').value.trim();
+
+      if (!title || !desc || !bullets) {
+        alert("Please complete all input fields to run the ATS scan.");
+        return;
+      }
+
+      // Transition States
+      document.getElementById('results-idle').style.display = 'none';
+      document.getElementById('results-show').style.display = 'none';
+      document.getElementById('results-loading').style.display = 'flex';
+
+      setTimeout(() => {
+        // Calculate a pseudorandom yet consistent score based on input lengths
+        const totalLength = title.length + desc.length + bullets.length;
+        const seedValue = totalLength % 25; // 0 to 24
+        const score = 65 + seedValue; // Scores fall between 65% and 89% for realistic initial reviews
+
+        document.getElementById('results-loading').style.display = 'none';
+        document.getElementById('results-show').style.display = 'flex';
+        
+        // Animated ring math
+        const ring = document.getElementById('score-circle-element');
+        const scoreVal = document.getElementById('score-value-element');
+        const pill = document.getElementById('score-pill-element');
+        const feedback = document.getElementById('score-feedback-text');
+
+        // Circular circumference is 2 * PI * r = 2 * 3.1415 * 74 = ~465
+        const dashOffset = 465 - (465 * score) / 100;
+        ring.style.strokeDashoffset = dashOffset;
+        scoreVal.textContent = `${score}%`;
+
+        // Update indicators
+        if (score >= 80) {
+          pill.textContent = "Strong Match";
+          pill.className = "insight-pill pill-good";
+          feedback.textContent = "Your experience is exceptionally aligned! Minor phrasing optimizations in behavioral answers will guarantee direct shortlists.";
+        } else {
+          pill.textContent = "Optimizations Needed";
+          pill.className = "insight-pill pill-warn";
+          feedback.textContent = "Missing several vital technical keywords. Enhance impact metrics in your experience summaries to bypass automated HR screening.";
+        }
+
+        lucide.createIcons();
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
