@@ -10,7 +10,13 @@
 
 <p align="center">
   <img src="assets/images/app_logo_1024.png" alt="InterviPrep Logo" width="180" style="border-radius: 32px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
-</p>
+</p> 
+
+## 🚀 Official Releases & Links  
+*   **iOS App Store**: [Download for iPhone](https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114)
+*   **Google Play Store**: [Download for Android](https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach)
+*   **Official Website & Web App**: [interviprep.ai](https://www.interviprep.ai/)
+*   **Contact & Technical Support**: [support@interviprep.ai](mailto:support@interviprep.ai)
 
 ---
 
@@ -89,14 +95,6 @@ graph TD
 *   **Mobile Interface**: Flutter (Material 3 custom design system featuring HSL color palettes and smooth glassmorphism blurs).
 *   **Data & Services**: Supabase Secure Authentication, Realtime PostgreSQL databases, and low-latency storage.
 *   **AI Integration**: Supabase Edge Functions orchestrating advanced large language models and cognitive transcription pipelines.
-
----
-
-## 🚀 Official Releases & Links
-*   **Official Website & Web App**: [interviprep.ai](https://www.interviprep.ai/)
-*   **iOS App Store**: [Download for iPhone](https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114)
-*   **Google Play Store**: [Download for Android](https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach)
-*   **Contact & Technical Support**: [support@interviprep.ai](mailto:support@interviprep.ai)
 
 ---
 
