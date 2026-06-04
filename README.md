@@ -13,7 +13,7 @@
 </p> 
 
 ## 🚀 Official Releases & Links  
-*   **iOS App Store**: [Download for iPhone](https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114)
+*   **iOS App Store**: [Download for iPhone](https://apps.apple.com/us/app/interviprep-ai-interview-prep/id6765798275) 
 *   **Google Play Store**: [Download for Android](https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach)
 *   **Official Website**: [interviprep.ai](https://www.interviprep.ai/)
 *   **Contact & Technical Support**: [support@interviprep.ai](mailto:support@interviprep.ai)
