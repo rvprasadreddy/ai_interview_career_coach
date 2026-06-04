@@ -1,7 +1,7 @@
 # InterviPrep — AI Interviewer & Professional Career Coach 🚀
 
 [![Website](https://img.shields.io/badge/Official_Website-interviprep.ai-0A66C2?style=for-the-badge&logo=linkedin)](https://www.interviprep.ai/)
-[![App Store](https://img.shields.io/badge/App_Store-iOS-black?style=for-the-badge&logo=apple)](https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114)
+[![App Store](https://img.shields.io/badge/App_Store-iOS-black?style=for-the-badge&logo=apple)](https://apps.apple.com/us/app/interviprep-ai-interview-prep/id6765798275)
 [![Play Store](https://img.shields.io/badge/Play_Store-Android-green?style=for-the-badge&logo=googleplay)](https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach)
 [![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)](https://flutter.dev)
 [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
@@ -15,7 +15,7 @@
 ## 🚀 Official Releases & Links  
 *   **iOS App Store**: [Download for iPhone](https://apps.apple.com/app/interviprep-ai-interview-coach/id6740698114)
 *   **Google Play Store**: [Download for Android](https://play.google.com/store/apps/details?id=com.antigravity.aiinterviewcoach)
-*   **Official Website & Web App**: [interviprep.ai](https://www.interviprep.ai/)
+*   **Official Website**: [interviprep.ai](https://www.interviprep.ai/)
 *   **Contact & Technical Support**: [support@interviprep.ai](mailto:support@interviprep.ai)
 
 ---
